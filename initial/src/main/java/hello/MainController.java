@@ -76,4 +76,21 @@ public class MainController {
 		// This returns a JSON or XML with the users
 		return userRepository.findAll();
 	}
+
+	@GetMapping(path="/findByName")
+	public @ResponseBody Iterable<User> findByName(@RequestParam String name){
+		return userRepository.findByName(name);
+	}
+
+	@GetMapping(path="/findBy2Param")
+	public @ResponseBody Iterable<User> findBy2Param(@RequestParam String name, @RequestParam String name2){
+		return userRepository.findBy2Param(name, name2);
+	}
+
+	@GetMapping(path="/updateBySql")
+	public @ResponseBody String updateBySql(@RequestParam Integer id, @RequestParam String name2){
+		// userRepository.updateBySql(id, name2);
+		userRepository.updateBySql(name2, id);
+		return "success";
+	}
 }
