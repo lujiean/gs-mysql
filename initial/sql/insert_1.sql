@@ -1,0 +1,1 @@
+insert into ljjtest(int_val, char_val) values (2,"bbbt");
